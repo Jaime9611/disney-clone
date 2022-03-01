@@ -1,7 +1,27 @@
 import React from 'react';
 
+import { Carousel, Wrapper } from './ImgSlider.styles';
+
 const ImgSlider = () => {
-  return <div>ImgSlider</div>;
+  let settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
+
+  return (
+    <Carousel {...settings}>
+      <Wrapper>
+        <img src="/images/slider-badging.jpg" />
+      </Wrapper>
+      <Wrapper>
+        <img src="/images/slider-badag.jpg" />
+      </Wrapper>
+    </Carousel>
+  );
 };
 
 export default ImgSlider;
