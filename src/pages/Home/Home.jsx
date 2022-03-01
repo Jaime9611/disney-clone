@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { Container } from './Home.styles';
-import { ImgSlider } from '../../components';
+import { ImgSlider, Categories } from '../../components';
 
 const Home = () => {
   return (
     <Container>
       <ImgSlider />
+      <Categories />
     </Container>
   );
 };

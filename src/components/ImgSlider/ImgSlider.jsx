@@ -15,10 +15,10 @@ const ImgSlider = () => {
   return (
     <Carousel {...settings}>
       <Wrapper>
-        <img src="/images/slider-badging.jpg" />
+        <img src="/images/slider-badging.jpg" alt="trend content" />
       </Wrapper>
       <Wrapper>
-        <img src="/images/slider-badag.jpg" />
+        <img src="/images/slider-badag.jpg" alt="trend content" />
       </Wrapper>
     </Carousel>
   );
