@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container } from './Home.styles';
-import { ImgSlider, Categories, MoviesPic } from '../../components';
+import { Categories, ImgSlider, MoviesPic } from '../../components';
 
 const Home = () => {
   return (
