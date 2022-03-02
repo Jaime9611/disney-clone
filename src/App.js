@@ -2,9 +2,8 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import { Home } from './pages';
+import { Home, Detail } from './pages';
 import Layout from './pages/Layout';
-import Detail from './pages/Detail';
 
 const App = () => {
   return (

@@ -8,28 +8,52 @@ const MoviesPic = () => {
       <h4>Recommended for You</h4>
       <Content>
         <Wrapper>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1" />
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1"
+            alt="Recommended movie"
+          />
         </Wrapper>
         <Wrapper>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1" />
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1"
+            alt="Recommended movie"
+          />
         </Wrapper>
         <Wrapper>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1" />
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1"
+            alt="Recommended movie"
+          />
         </Wrapper>
         <Wrapper>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1" />
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1"
+            alt="Recommended movie"
+          />
         </Wrapper>
         <Wrapper>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1" />
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1"
+            alt="Recommended movie"
+          />
         </Wrapper>
         <Wrapper>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1" />
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1"
+            alt="Recommended movie"
+          />
         </Wrapper>
         <Wrapper>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1" />
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1"
+            alt="Recommended movie"
+          />
         </Wrapper>
         <Wrapper>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1" />
+          <img
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.miraheze.org%2Fgreatestmovieswiki%2Fthumb%2F0%2F04%2FAvengers2.jpg%2F330px-Avengers2.jpg&f=1&nofb=1"
+            alt="Recommended movie"
+          />
         </Wrapper>
       </Content>
     </Container>
