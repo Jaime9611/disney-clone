@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { collection, getDocs } from 'firebase/firestore';
+import db from '../../firebase';
 
 import {
   Container,
@@ -14,13 +17,27 @@ import {
 } from './Detail.styles';
 
 const Detail = () => {
+  const [movie, setMovie] = useState([]);
+
+  const getMovies = async () => {
+    const snapshot = await getDocs(collection(db, 'Movies'));
+    let movies = snapshot.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
+    });
+    setMovie(movies[0]);
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
   return (
     <Container>
       <Background>
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F7b%2Fb5%2F3d%2F7bb53dbcf8429535226f4df3d154213c.jpg&f=1&nofb=1" />
+        <img src={`${movie.imageBg}`} />
       </Background>
       <ImageTitle>
-        <img src="" />
+        <img src={`${movie.imageTitle}`} />
       </ImageTitle>
       <Controls>
         <PlayButton>
@@ -38,11 +55,8 @@ const Detail = () => {
           <img src="/images/group-icon.png" />
         </GroupWatchButton>
       </Controls>
-      <SubTitle>2018 * 7m * Fantasy, kids, Animation</SubTitle>
-      <Description>
-        A Chinese mon who's sad when her grown son leaves the house to be a
-        programmer and engenner in system communications.
-      </Description>
+      <SubTitle>{movie.subTitle}</SubTitle>
+      <Description>{movie.description}</Description>
     </Container>
   );
 };
