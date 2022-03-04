@@ -34,25 +34,25 @@ const Detail = () => {
   return (
     <Container>
       <Background>
-        <img src={`${movie.imageBg}`} />
+        <img src={movie.imageBg} alt="movie background" />
       </Background>
       <ImageTitle>
-        <img src={`${movie.imageTitle}`} />
+        <img src={movie.imageTitle} alt={movie.title} />
       </ImageTitle>
       <Controls>
         <PlayButton>
-          <img src="/images/play-icon-black.png" />
+          <img src="/images/play-icon-black.png" alt="play button" />
           <span>Play</span>
         </PlayButton>
         <TrailerButton>
-          <img src="/images/play-icon-white.png" />
+          <img src="/images/play-icon-white.png" alt="trailer button" />
           <span>Trailer</span>
         </TrailerButton>
         <AddButton>
-          <span>+</span>
+          <span aria-label="Add movie button">+</span>
         </AddButton>
         <GroupWatchButton>
-          <img src="/images/group-icon.png" />
+          <img src="/images/group-icon.png" alt="group watch button" />
         </GroupWatchButton>
       </Controls>
       <SubTitle>{movie.subTitle}</SubTitle>
