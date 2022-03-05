@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 
-import { collection, getDocs } from 'firebase/firestore';
-import db from '../firebase';
+import { getMovies } from '../api/queries';
 
 // Context Store Config
 const defaultStore = {
@@ -9,12 +8,21 @@ const defaultStore = {
   movies: [],
 };
 
+/**
+ * Context API:
+ * For creating a context api you need to import the createContext() function,
+ * which receives a default value for the state, and object is normally used...
+ */
 const MoviesContext = React.createContext(defaultStore);
 
 // Context Provider Component
 export const MoviesContextProvider = (props) => {
-  // movies Reducer:
-  /* useReducer() needs three arguments to function, the first is the Function reducer to use, the second is the inital State, the third is a function to initialize the state. */
+  /**
+   * Movies Reducer:
+   * useReducer() needs three arguments to function, the first is the Function
+   * reducer to use, the second is the inital State, the third is a function
+   * to initialize the state.
+   */
   const moviesReducer = (state, action) => {
     switch (action.type) {
       case 'CALL_API':
@@ -30,6 +38,7 @@ export const MoviesContextProvider = (props) => {
     }
   };
 
+  // Initial state for the useReducer hook.
   const initialState = {
     isLoading: false,
     movies: [],
@@ -37,13 +46,11 @@ export const MoviesContextProvider = (props) => {
 
   const [moviesState, dispatchMovies] = useReducer(moviesReducer, initialState);
 
-  const getMovies = async () => {
+  const moviesList = async () => {
     dispatchMovies({ type: 'CALL_API' });
-    const snapshot = await getDocs(collection(db, 'Movies'));
-    let movies = snapshot.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() };
-    });
-    console.log(movies);
+
+    const movies = await getMovies();
+
     if (movies) {
       dispatchMovies({
         type: 'GET_MOVIES',
@@ -53,7 +60,7 @@ export const MoviesContextProvider = (props) => {
   };
 
   useEffect(() => {
-    getMovies();
+    moviesList();
   }, []);
 
   return (

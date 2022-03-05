@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { collection, getDocs } from 'firebase/firestore';
-import db from '../../firebase';
-
 import {
   Container,
   Background,
@@ -19,17 +16,7 @@ import {
 const Detail = () => {
   const [movie, setMovie] = useState([]);
 
-  const getMovies = async () => {
-    const snapshot = await getDocs(collection(db, 'Movies'));
-    let movies = snapshot.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() };
-    });
-    setMovie(movies[0]);
-  };
-
-  useEffect(() => {
-    getMovies();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <Container>
