@@ -1,20 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { Container, Content, Wrapper } from './MoviesPic.styles';
 
-import MoviesContext from '../../context/store';
-
-const MoviesPic = () => {
-  const ctx = useContext(MoviesContext);
+const MoviesPic = ({ ctx, onMovieClick }) => {
+  const { isLoading, movies } = ctx;
 
   return (
     <Container>
       <h4>Recommended for You</h4>
       <Content>
-        {!ctx.isloading &&
-          ctx.movies.map((movie) => {
+        {!isLoading &&
+          movies?.map((movie) => {
+            console.log('enter movies');
             return (
-              <Wrapper key={movie.id}>
+              <Wrapper key={movie.id} onClick={() => onMovieClick(movie.id)}>
                 <img src={movie.imageCard} alt={`${movie.title} pic`} />
               </Wrapper>
             );
