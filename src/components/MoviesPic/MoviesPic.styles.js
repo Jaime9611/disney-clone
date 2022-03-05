@@ -6,6 +6,7 @@ export const Content = styled.div`
   display: grid;
   grid-gap: 25px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding-bottom: 10px;
 `;
 
 export const Wrapper = styled.div`

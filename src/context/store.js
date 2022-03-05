@@ -17,19 +17,17 @@ export const MoviesContextProvider = (props) => {
   /* useReducer() needs three arguments to function, the first is the Function reducer to use, the second is the inital State, the third is a function to initialize the state. */
   const moviesReducer = (state, action) => {
     switch (action.type) {
-      case 'CALL_API': {
+      case 'CALL_API':
         return { ...state, isLoading: true };
-      }
-      case 'GET_MOVIES': {
+      case 'GET_MOVIES':
         return {
           ...state,
           isLoading: false,
           movies: action.payload,
         };
-      }
+      default:
+        return { isLoading: false, movies: [] };
     }
-
-    return { isLoading: true, movies: [] };
   };
 
   const initialState = {
@@ -56,8 +54,6 @@ export const MoviesContextProvider = (props) => {
 
   useEffect(() => {
     getMovies();
-
-    console.log(moviesState);
   }, []);
 
   return (
