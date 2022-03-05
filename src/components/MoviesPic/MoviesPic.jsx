@@ -11,7 +11,6 @@ const MoviesPic = ({ ctx, onMovieClick }) => {
       <Content>
         {!isLoading &&
           movies?.map((movie) => {
-            console.log('enter movies');
             return (
               <Wrapper key={movie.id} onClick={() => onMovieClick(movie.id)}>
                 <img src={movie.imageCard} alt={`${movie.title} pic`} />

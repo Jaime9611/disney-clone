@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+
+import { useParams } from 'react-router-dom';
 
 import {
   Container,
@@ -13,10 +15,15 @@ import {
   Description,
 } from './Detail.styles';
 
-const Detail = () => {
-  const [movie, setMovie] = useState([]);
+import MoviesContext from '../../context/store';
 
-  useEffect(() => {}, []);
+const Detail = () => {
+  const ctx = useContext(MoviesContext);
+  const params = useParams();
+
+  const movie = ctx.movies?.find((movie) => {
+    return movie.id === params.movieId;
+  });
 
   return (
     <Container>
