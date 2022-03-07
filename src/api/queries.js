@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import db from '../api';
 
 export const getMovies = async () => {
@@ -8,4 +8,12 @@ export const getMovies = async () => {
   });
 
   return movies;
+};
+
+export const getMovie = async (id) => {
+  const docRef = doc(db, 'Movies', id);
+  const snapshot = await getDoc(docRef);
+  console.log(snapshot);
+  const movie = snapshot.data();
+  return movie;
 };

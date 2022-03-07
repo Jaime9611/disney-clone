@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useParams } from 'react-router-dom';
+import { getMovie } from '../../api/queries';
 
 import {
   Container,
@@ -16,18 +17,35 @@ import {
 } from './Detail.styles';
 
 const Detail = () => {
-  const params = useParams();
+  const { movieId } = useParams();
+  const [loading, setLoading] = useState(false);
+  const [movie, setMovie] = useState({});
 
-  // remove later
-  const movie = null;
+  const fetchMovie = async (id) => {
+    const item = await getMovie(id);
+    if (item) {
+      setMovie(item);
+      setLoading(false);
+    }
+  };
 
-  return (
+  useEffect(() => {
+    setLoading(true);
+    fetchMovie(movieId);
+  }, [movieId]);
+
+  console.log(movie);
+  return loading ? (
+    <Container>
+      <h2>Loading...</h2>
+    </Container>
+  ) : (
     <Container>
       <Background>
-        <img src={movie.imageBg} alt="movie background" />
+        <img src={movie?.imageBg} alt="movie background" />
       </Background>
       <ImageTitle>
-        <img src={movie.imageTitle} alt={movie.title} />
+        <img src={movie?.imageTitle} alt={movie.title} />
       </ImageTitle>
       <Controls>
         <PlayButton>
@@ -45,8 +63,8 @@ const Detail = () => {
           <img src="/images/group-icon.png" alt="group watch button" />
         </GroupWatchButton>
       </Controls>
-      <SubTitle>{movie.subTitle}</SubTitle>
-      <Description>{movie.description}</Description>
+      <SubTitle>{movie?.subTitle}</SubTitle>
+      <Description>{movie?.description}</Description>
     </Container>
   );
 };
