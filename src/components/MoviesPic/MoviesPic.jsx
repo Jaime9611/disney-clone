@@ -2,8 +2,10 @@ import React from 'react';
 
 import { Container, Content, Wrapper } from './MoviesPic.styles';
 
-const MoviesPic = ({ ctx, onMovieClick }) => {
-  const { isLoading, movies } = ctx;
+const MoviesPic = ({ onMovieClick }) => {
+  // remove later
+  const movies = [];
+  const isLoading = null;
 
   return (
     <Container>

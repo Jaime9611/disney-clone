@@ -15,15 +15,11 @@ import {
   Description,
 } from './Detail.styles';
 
-import MoviesContext from '../../context/store';
-
 const Detail = () => {
-  const ctx = useContext(MoviesContext);
   const params = useParams();
 
-  const movie = ctx.movies?.find((movie) => {
-    return movie.id === params.movieId;
-  });
+  // remove later
+  const movie = null;
 
   return (
     <Container>
