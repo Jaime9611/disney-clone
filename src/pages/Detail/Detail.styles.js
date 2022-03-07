@@ -1,61 +1,90 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  min-height: calc(100vh - 70px);
-  padding: 0 calc(3.5vw + 5px);
   position: relative;
+  min-height: calc(100vh-250px);
+  overflow-x: hidden;
+  display: block;
+  top: 0;
+  padding: 0 calc(3.5vw + 5px);
 `;
 
 export const Background = styled.div`
+  left: 0px;
+  opacity: 0.8;
   position: fixed;
+  right: 0px;
   top: 0px;
-  left: 0;
-  bottom: 0;
-  right: 0;
   z-index: -1;
-  opacity: 0.6;
-
   img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    @media (max-width: 768px) {
+      width: initial;
+    }
   }
 `;
 
 export const ImageTitle = styled.div`
-  height: 30vh;
+  align-items: flex-end;
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  margin: 0px auto;
+  height: 25vw;
   min-height: 170px;
-  min-width: 200px;
-  width: 35vw;
-
+  padding-bottom: 24px;
+  width: 100%;
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 600px;
+    min-width: 200px;
+    width: 35vw;
   }
 `;
 
+export const ContentMeta = styled.div`
+  max-width: 874px;
+`;
+
 export const Controls = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 8px 0px;
+  min-height: 56px;
 `;
 
 export const PlayButton = styled.button`
+  font-size: 15px;
+  margin: 0px 22px 0px 0px;
+  padding: 0px 24px;
   height: 56px;
-  padding: 0 24px;
-  margin-right: 22px;
+  border-radius: 4px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  border-radius: 4px;
-  font-size: 15px;
+  justify-content: center;
   letter-spacing: 1.8px;
-  cursor: pointer;
-  background: rgb(249, 249, 249);
+  text-align: center;
+  text-transform: uppercase;
+  background: rgb (249, 249, 249);
   border: none;
-
+  color: rgb(0, 0, 0);
+  img {
+    width: 32px;
+  }
   &:hover {
     background: rgb(198, 198, 198);
+  }
+  @media (max-width: 768px) {
+    height: 45px;
+    padding: 0px 12px;
+    font-size: 12px;
+    margin: 0px 10px 0px 0px;
+    img {
+      width: 25px;
+    }
   }
 `;
 
@@ -63,43 +92,70 @@ export const TrailerButton = styled(PlayButton)`
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
-  text-transform: uppercase;
 `;
 
-export const AddButton = styled.button`
-  width: 45px;
-  height: 45px;
-  padding-bottom: 3px;
+export const AddButton = styled.div`
   margin-right: 16px;
+  height: 44px;
+  width: 44px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid white;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
-
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
   span {
-    font-size: 30px;
-    color: white;
+    background-color: rgb(249, 249, 249);
+    display: inline-block;
+    &:first-child {
+      height: 2px;
+      transform: translate(1px, 0px) rotate(0deg);
+      width: 16px;
+    }
+    &:nth-child(2) {
+      height: 16px;
+      transform: translateX(-8px) rotate(0deg);
+      width: 2px;
+    }
   }
 `;
 
-export const GroupWatchButton = styled(AddButton)`
-  padding-bottom: 0;
-  background: rgb(0, 0, 0);
+export const GroupWatchButton = styled.div`
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: white;
+  div {
+    height: 40px;
+    width: 40px;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    img {
+      width: 100%;
+    }
+  }
 `;
 
 export const SubTitle = styled.div`
   color: rgb(249, 249, 249);
   font-size: 15px;
   min-height: 20px;
-  margin-top: 26px;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const Description = styled.div`
   line-height: 1.4;
   font-size: 20px;
-  margin-top: 16px;
+  padding: 16px 0px;
   color: rgb(249, 249, 249);
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
