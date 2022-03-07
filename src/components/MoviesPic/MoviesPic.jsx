@@ -1,11 +1,14 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
+
 import { Container, Content, Wrapper } from './MoviesPic.styles';
 
+import { selectLoading, selectRecommended } from '../../redux/movie/movieSlice';
+
 const MoviesPic = ({ onMovieClick }) => {
-  // remove later
-  const movies = [];
-  const isLoading = null;
+  const movies = useSelector(selectRecommended);
+  const isLoading = useSelector(selectLoading);
 
   return (
     <Container>
