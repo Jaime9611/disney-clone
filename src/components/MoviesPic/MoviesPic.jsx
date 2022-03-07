@@ -4,22 +4,23 @@ import { useSelector } from 'react-redux';
 
 import { Container, Content, Wrapper } from './MoviesPic.styles';
 
-import { selectLoading, selectRecommended } from '../../redux/movie/movieSlice';
+import { Link } from 'react-router-dom';
 
-const MoviesPic = ({ onMovieClick }) => {
-  const movies = useSelector(selectRecommended);
-  const isLoading = useSelector(selectLoading);
+const MoviesPic = ({ title, selected, isLoading }) => {
+  const movies = useSelector(selected);
 
   return (
     <Container>
-      <h4>Recommended for You</h4>
+      <h4>{title}</h4>
       <Content>
         {!isLoading &&
           movies?.map((movie) => {
             return (
-              <Wrapper key={movie.id} onClick={() => onMovieClick(movie.id)}>
-                <img src={movie.imageCard} alt={`${movie.title} pic`} />
-              </Wrapper>
+              <Link to={`detail/${movie.id}`}>
+                <Wrapper key={movie.id}>
+                  <img src={movie.imageCard} alt={`${movie.title} pic`} />
+                </Wrapper>
+              </Link>
             );
           })}
       </Content>
