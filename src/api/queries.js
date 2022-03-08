@@ -1,5 +1,7 @@
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import db from '../api';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, provider } from '../api';
 
 export const getMovies = async () => {
   const snapshot = await getDocs(collection(db, 'Movies'));
@@ -16,4 +18,9 @@ export const getMovie = async (id) => {
   console.log(snapshot);
   const movie = snapshot.data();
   return movie;
+};
+
+export const getUser = async () => {
+  const user = await signInWithPopup(auth, provider);
+  return user;
 };

@@ -1,20 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-  min-height: calc(100vh - 70px);
-  padding: 0 calc(3.5vw + 5px);
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
+  min-height: calc(100vh - 250px);
+  overflow-x: hidden;
+  display: block;
+  top: 72px;
+  padding: 0 calc(3.5vw + 5px);
+  &:after {
     background: url('/images/home-background.png') center center / cover
       no-repeat fixed;
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0px;
+    opacity: 1;
     z-index: -1;
   }
 `;

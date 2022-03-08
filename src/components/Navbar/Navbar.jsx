@@ -1,5 +1,14 @@
 import React from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import {
+  selectUseEmail,
+  selectUserName,
+  selectUserPhoto,
+  userLogin,
+} from '../../redux/user/userSlice';
 
 import {
   Nav,
@@ -12,7 +21,15 @@ import {
 } from './Navbar.styles';
 
 const Navbar = () => {
-  const userName = null;
+  const dispatch = useDispatch();
+  const userName = useSelector(selectUserName);
+  const userEmail = useSelector(selectUseEmail);
+  const userPhoto = useSelector(selectUserPhoto);
+
+  console.log(userName);
+  const handleLogin = () => {
+    dispatch(userLogin());
+  };
   return (
     <Nav>
       <Logo>
@@ -20,7 +37,7 @@ const Navbar = () => {
       </Logo>
 
       {!userName ? (
-        <Login onClick={() => console.log('click')}>Login</Login>
+        <Login onClick={handleLogin}>Login</Login>
       ) : (
         <>
           <NavMenu>
@@ -50,7 +67,7 @@ const Navbar = () => {
             </a>
           </NavMenu>
           <SignOut>
-            <UserImg src="/image/profile-img.jpg" alt="profile pic" />
+            <UserImg src={userPhoto} alt={userName} />
             <DropDown>
               <span onClick={() => console.log('click')}>Sign out</span>
             </DropDown>
