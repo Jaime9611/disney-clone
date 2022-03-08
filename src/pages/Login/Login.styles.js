@@ -1,66 +1,83 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  position: relative;
-  height: calc(100vh - 70px);
+export const Container = styled.section`
+  overflow: hidden;
   display: flex;
-  align-items: top;
-  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+`;
 
-  &:before {
-    content: '';
-    background-image: url('/images/login-background.jpg');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0.7;
-    z-index: -1;
-  }
+export const Content = styled.div`
+  margin-bottom: 10vw;
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px 40px;
+  height: 100%;
+`;
+
+export const BgImage = styled.div`
+  height: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/images/login-background.jpg');
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
 `;
 
 export const CTA = styled.div`
   max-width: 650px;
-  padding: 80px 40px;
-  width: 90%;
+  width: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  margin-top: 100px;
+`;
+
+export const CTALogoOne = styled.img`
+  margin-bottom: 12px;
+  max-width: 600px;
+  min-height: 1px;
+  display: block;
+  width: 100%;
 `;
 
 export const SignUp = styled.a`
-  width: 100%;
-  margin-top: 8px;
-  margin-bottom: 12px;
-  padding: 17px 0;
-  border-radius: 4px;
-  background-color: #0063e5;
   font-weight: bold;
   color: #f9f9f9;
-  text-align: center;
-  cursor: pointer;
-  font-size: 18px;
-  transition: all 250ms;
+  background-color: #0063e5;
+  margin-bottom: 12px;
+  width: 100%;
   letter-spacing: 1.5px;
-
+  font-size: 18px;
+  padding: 16.5px 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
   &:hover {
-    background: #0483ee;
+    background-color: #0483ee;
   }
 `;
 
 export const Description = styled.p`
+  color: hsla(0, 0%, 95.3%, 1);
   font-size: 11px;
-  letter-spacing: 1.5px;
-  text-align: center;
+  margin: 0 0 24px;
   line-height: 1.5;
+  letter-spacing: 1.5px;
 `;
 
-export const CTALogoOne = styled.img``;
 export const CTALogoTwo = styled.img`
-  width: 90%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
 `;

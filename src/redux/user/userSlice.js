@@ -31,7 +31,7 @@ export const userLogin =
   async (dispatch) => {
     if (!user) {
       const userInfo = await getUser();
-      const { user } = userInfo;
+      const user = userInfo.user;
     }
     if (user) {
       dispatch(
