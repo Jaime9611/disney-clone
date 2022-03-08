@@ -95,6 +95,8 @@ export const Login = styled.a`
   border: 1px solid #f9f9f9;
   border-radius: 4px;
   transition: all 0.2s ease 0s;
+  cursor: pointer;
+
   &:hover {
     background-color: #f9f9f9;
     color: #000;
@@ -117,7 +119,7 @@ export const DropDown = styled.div`
   padding: 10px;
   font-size: 14px;
   letter-spacing: 3px;
-  width: 100px;
+  width: 105px;
   opacity: 0;
 `;
 
@@ -129,6 +131,7 @@ export const SignOut = styled.div`
   cursor: pointer;
   align-items: center;
   justify-content: center;
+
   ${UserImg} {
     border-radius: 50%;
     width: 100%;

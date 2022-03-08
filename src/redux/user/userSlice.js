@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getUser } from '../../api/queries';
+import { getUser, signOutUser } from '../../api/queries';
 
 const initialState = {
   userName: '',
@@ -26,18 +26,27 @@ const userSlice = createSlice({
 
 export const { setUserLogin, setUserLogout } = userSlice.actions;
 
-export const userLogin = () => async (dispatch) => {
-  const userInfo = await getUser();
-  console.log(userInfo.user);
-  if (userInfo) {
-    dispatch(
-      setUserLogin({
-        userName: userInfo.user.displayName,
-        email: userInfo.user.email,
-        photo: userInfo.user.photoURL,
-      }),
-    );
-  }
+export const userLogin =
+  (user = null) =>
+  async (dispatch) => {
+    if (!user) {
+      const userInfo = await getUser();
+      const { user } = userInfo;
+    }
+    if (user) {
+      dispatch(
+        setUserLogin({
+          userName: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+        }),
+      );
+    }
+  };
+
+export const userLogout = () => async (dispatch) => {
+  await signOutUser();
+  dispatch(setUserLogout());
 };
 
 export const selectUserName = (state) => state.user.userName;

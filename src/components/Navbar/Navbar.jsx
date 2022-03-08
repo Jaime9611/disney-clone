@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { currentUserState } from '../../api/queries';
+
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../api';
 
 import {
-  selectUseEmail,
   selectUserName,
   selectUserPhoto,
   userLogin,
+  userLogout,
 } from '../../redux/user/userSlice';
 
 import {
@@ -23,13 +28,36 @@ import {
 const Navbar = () => {
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
-  const userEmail = useSelector(selectUseEmail);
   const userPhoto = useSelector(selectUserPhoto);
+  const navigate = useNavigate();
 
-  console.log(userName);
+  const currentUserState = async () => {
+    try {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          dispatch(userLogin(user));
+          navigate('/home');
+        } else {
+          navigate('/');
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    currentUserState();
+  }, [userName]);
+
+  const handleLogout = () => {
+    dispatch(userLogout());
+  };
+
   const handleLogin = () => {
     dispatch(userLogin());
   };
+
   return (
     <Nav>
       <Logo>
@@ -69,7 +97,7 @@ const Navbar = () => {
           <SignOut>
             <UserImg src={userPhoto} alt={userName} />
             <DropDown>
-              <span onClick={() => console.log('click')}>Sign out</span>
+              <span onClick={handleLogout}>Sign out</span>
             </DropDown>
           </SignOut>
         </>

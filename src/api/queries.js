@@ -1,6 +1,6 @@
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import db from '../api';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth, provider } from '../api';
 
 export const getMovies = async () => {
@@ -23,4 +23,12 @@ export const getMovie = async (id) => {
 export const getUser = async () => {
   const user = await signInWithPopup(auth, provider);
   return user;
+};
+
+export const signOutUser = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.log(error);
+  }
 };

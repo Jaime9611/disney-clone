@@ -16,7 +16,7 @@ const MoviesPic = ({ title, selected, isLoading }) => {
         {!isLoading &&
           movies?.map((movie) => {
             return (
-              <Link key={movie.id} to={`detail/${movie.id}`}>
+              <Link key={movie.id} to={`/detail/${movie.id}`}>
                 <Wrapper>
                   <img src={movie.imageCard} alt={`${movie.title} pic`} />
                 </Wrapper>
