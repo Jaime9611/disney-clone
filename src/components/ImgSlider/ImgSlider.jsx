@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Carousel, Wrapper } from './ImgSlider.styles';
 
@@ -15,10 +16,14 @@ const ImgSlider = () => {
   return (
     <Carousel {...settings}>
       <Wrapper>
-        <img src="/images/slider-badging.jpg" alt="trend content" />
+        <Link to="/">
+          <img src="/images/slider-badging.jpg" alt="trend content" />
+        </Link>
       </Wrapper>
       <Wrapper>
-        <img src="/images/slider-badag.jpg" alt="trend content" />
+        <Link to="/">
+          <img src="/images/slider-badag.jpg" alt="trend content" />
+        </Link>
       </Wrapper>
     </Carousel>
   );
