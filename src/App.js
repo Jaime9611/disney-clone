@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import { Detail, Home, Login } from './pages';
+import { Detail, Home, Login, Search } from './pages';
 import Layout from './pages/Layout';
 import { selectDemoState, selectUserName } from './redux/user/userSlice';
 
@@ -16,6 +16,7 @@ const App = () => {
             <Route path=":movieId" element={<Detail />} />
           </Route>
           <Route path="home" element={<Home />} />
+          <Route path="search" element={<Search />} />
         </Route>
       </Routes>
     </>

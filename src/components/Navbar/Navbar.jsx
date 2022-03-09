@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -30,6 +30,7 @@ import {
 } from './Navbar.styles';
 
 const Navbar = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
@@ -80,6 +81,12 @@ const Navbar = () => {
     navigate('/');
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate(`/search?title=${searchTerm}`);
+    setSearchTerm('');
+  };
+
   return (
     <Nav>
       <Logo>
@@ -102,7 +109,7 @@ const Navbar = () => {
               <img src="/images/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
             </a>
-            <a href="#originals">
+            <a href="/home/#originals">
               <img src="/images/original-icon.svg" alt="ORIGINALS" />
               <span>ORIGINALS</span>
             </a>
@@ -121,6 +128,14 @@ const Navbar = () => {
               <span onClick={handleDemoLogout}>Sign out</span>
             </DropDown>
           </SignOut>
+          <form action="" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Search..."
+              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
+            />
+          </form>
         </>
       ) : (
         <>
