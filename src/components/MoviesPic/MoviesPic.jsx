@@ -6,11 +6,11 @@ import { Container, Content, Wrapper } from './MoviesPic.styles';
 
 import { Link } from 'react-router-dom';
 
-const MoviesPic = ({ title, selected, isLoading }) => {
+const MoviesPic = ({ title, selected, isLoading, idName }) => {
   const movies = useSelector(selected);
 
   return (
-    <Container>
+    <Container id={idName}>
       <h4>{title}</h4>
       <Content>
         {!isLoading &&

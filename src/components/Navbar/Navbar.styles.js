@@ -13,6 +13,21 @@ export const Nav = styled.nav`
   padding: 0 36px;
   letter-spacing: 16px;
   z-index: 3;
+
+  .login-btns {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+
+    a:nth-child(2) {
+      background-color: rgba(255, 255, 255, 0.2);
+  
+      &:hover {
+        background-color: #c4c4c4;
+        color: #000;
+        border-color: transparent;
+      }
+  }
 `;
 
 export const Logo = styled.a`

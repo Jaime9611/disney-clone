@@ -19,14 +19,15 @@ const ImgSlider = () => {
 
   return (
     <Carousel {...settings}>
-      {movies.map((movie) => (
-        <Wrapper key={movie.id}>
-          <Link to={`/detail/${movie.id}`}>
-            <img src={movie.imageTitle} />
-            <img src={movie.imageBg} alt="trend content" />
-          </Link>
-        </Wrapper>
-      ))}
+      {movies &&
+        movies.map((movie) => (
+          <Wrapper key={movie.id}>
+            <Link to={`/detail/${movie.id}`}>
+              <img src={movie.imageTitle} />
+              <img src={movie.imageBg} alt="trend content" />
+            </Link>
+          </Wrapper>
+        ))}
     </Carousel>
   );
 };

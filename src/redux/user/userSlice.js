@@ -5,6 +5,7 @@ const initialState = {
   userName: '',
   email: '',
   photo: '',
+  demoLogin: false,
 };
 
 const userSlice = createSlice({
@@ -15,16 +16,25 @@ const userSlice = createSlice({
       state.userName = action.payload.userName;
       state.email = action.payload.email;
       state.photo = action.payload.photo;
+      state.demoLogin = false;
     },
     setUserLogout: (state, action) => {
       state.userName = null;
       state.email = null;
       state.photo = null;
+      state.demoLogin = false;
+    },
+    setDemoLogin: (state, action) => {
+      state.demoLogin = true;
+    },
+    setDemoLogout: (state, action) => {
+      state.demoLogin = false;
     },
   },
 });
 
-export const { setUserLogin, setUserLogout } = userSlice.actions;
+export const { setUserLogin, setUserLogout, setDemoLogin, setDemoLogout } =
+  userSlice.actions;
 
 export const userLogin =
   (user = null) =>
@@ -52,5 +62,6 @@ export const userLogout = () => async (dispatch) => {
 export const selectUserName = (state) => state.user.userName;
 export const selectUseEmail = (state) => state.user.email;
 export const selectUserPhoto = (state) => state.user.photo;
+export const selectDemoState = (state) => state.user.demoLogin;
 
 export default userSlice.reducer;

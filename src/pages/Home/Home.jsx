@@ -12,7 +12,7 @@ import {
   selectSeries,
 } from '../../redux/movie/movieSlice';
 
-import { selectUserName } from '../../redux/user/userSlice';
+import { selectDemoState, selectUserName } from '../../redux/user/userSlice';
 
 import { Container } from './Home.styles';
 import { Categories, ImgSlider, MoviesPic } from '../../components';
@@ -21,13 +21,15 @@ const Home = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
   const userName = useSelector(selectUserName);
+  const demoState = useSelector(selectDemoState);
 
   useEffect(() => {
     dispatch(fetchMovies());
   }, [dispatch]);
 
   return (
-    userName && (
+    userName ||
+    (demoState && (
       <Container>
         <ImgSlider />
         <Categories />
@@ -35,24 +37,28 @@ const Home = () => {
           title="Recommended"
           selected={selectRecommended}
           isLoading={isLoading}
+          idName="recommended"
         />
         <MoviesPic
           title="Originals"
           selected={selectOriginals}
           isLoading={isLoading}
+          idName="originals"
         />
         <MoviesPic
           title="Movies"
           selected={selectMovies}
           isLoading={isLoading}
+          idName="movies"
         />
         <MoviesPic
           title="Series"
           selected={selectSeries}
           isLoading={isLoading}
+          idName="series"
         />
       </Container>
-    )
+    ))
   );
 };
 
