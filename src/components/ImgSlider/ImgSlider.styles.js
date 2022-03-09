@@ -28,8 +28,17 @@ export const Carousel = styled(Slider)`
 
 export const Wrapper = styled.div`
   cursor: pointer;
+  position: relative;
 
-  img {
+  img:first-child {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    left: 20px;
+  }
+
+  img:nth-child(2) {
     width: 100%;
     height: 325px;
     border: 4px solid transparent;
