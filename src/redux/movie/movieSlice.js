@@ -7,6 +7,7 @@ const initialState = {
   originals: null,
   movies: null,
   series: null,
+  trending: null,
 };
 
 const movieSlice = createSlice({
@@ -26,6 +27,7 @@ const movieSlice = createSlice({
       state.originals = action.payload.originals;
       state.movies = action.payload.movies;
       state.series = action.payload.series;
+      state.trending = action.payload.trending;
     },
   },
 });
@@ -39,6 +41,7 @@ export const fetchMovies = () => async (dispatch) => {
   let originals = allMovies.filter((movie) => movie.type === 'original');
   let movies = allMovies.filter((movie) => movie.type === 'movie');
   let series = allMovies.filter((movie) => movie.type === 'serie');
+  let trending = allMovies.filter((movie) => movie.type === 'trending');
 
   dispatch(
     setMovies({
@@ -46,6 +49,7 @@ export const fetchMovies = () => async (dispatch) => {
       originals,
       movies,
       series,
+      trending,
     }),
   );
 };
@@ -55,5 +59,6 @@ export const selectRecommended = (state) => state.movie.recommended;
 export const selectOriginals = (state) => state.movie.originals;
 export const selectMovies = (state) => state.movie.movies;
 export const selectSeries = (state) => state.movie.series;
+export const selectTrending = (state) => state.movie.trending;
 
 export default movieSlice.reducer;

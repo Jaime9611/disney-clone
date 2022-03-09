@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { selectTrending } from '../../redux/movie/movieSlice';
+import { useSelector } from 'react-redux';
 
 import { Carousel, Wrapper } from './ImgSlider.styles';
 
 const ImgSlider = () => {
+  const movies = useSelector(selectTrending);
+
   let settings = {
     dots: true,
     infinite: true,
@@ -15,16 +19,13 @@ const ImgSlider = () => {
 
   return (
     <Carousel {...settings}>
-      <Wrapper>
-        <Link to="/">
-          <img src="/images/slider-badging.jpg" alt="trend content" />
-        </Link>
-      </Wrapper>
-      <Wrapper>
-        <Link to="/">
-          <img src="/images/slider-badag.jpg" alt="trend content" />
-        </Link>
-      </Wrapper>
+      {movies.map((movie) => (
+        <Wrapper key={movie.id}>
+          <Link to={`/detail/${movie.id}`}>
+            <img src={movie.imageBg} alt="trend content" />
+          </Link>
+        </Wrapper>
+      ))}
     </Carousel>
   );
 };
