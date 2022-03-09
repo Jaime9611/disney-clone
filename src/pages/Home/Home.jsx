@@ -25,40 +25,39 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, [dispatch]);
+  }, [dispatch, userName]);
 
-  return (
-    userName ||
-    (demoState && (
-      <Container>
-        <ImgSlider />
-        <Categories />
-        <MoviesPic
-          title="Recommended"
-          selected={selectRecommended}
-          isLoading={isLoading}
-          idName="recommended"
-        />
-        <MoviesPic
-          title="Originals"
-          selected={selectOriginals}
-          isLoading={isLoading}
-          idName="originals"
-        />
-        <MoviesPic
-          title="Movies"
-          selected={selectMovies}
-          isLoading={isLoading}
-          idName="movies"
-        />
-        <MoviesPic
-          title="Series"
-          selected={selectSeries}
-          isLoading={isLoading}
-          idName="series"
-        />
-      </Container>
-    ))
+  return userName || demoState ? (
+    <Container>
+      <ImgSlider />
+      <Categories />
+      <MoviesPic
+        title="Recommended"
+        selected={selectRecommended}
+        isLoading={isLoading}
+        idName="recommended"
+      />
+      <MoviesPic
+        title="Originals"
+        selected={selectOriginals}
+        isLoading={isLoading}
+        idName="originals"
+      />
+      <MoviesPic
+        title="Movies"
+        selected={selectMovies}
+        isLoading={isLoading}
+        idName="movies"
+      />
+      <MoviesPic
+        title="Series"
+        selected={selectSeries}
+        isLoading={isLoading}
+        idName="series"
+      />
+    </Container>
+  ) : (
+    <h2>Not allowed here!</h2>
   );
 };
 

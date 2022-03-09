@@ -15,6 +15,7 @@ import {
   userLogin,
   userLogout,
   setDemoLogin,
+  getDemoLogin,
   setDemoLogout,
 } from '../../redux/user/userSlice';
 
@@ -51,8 +52,14 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    currentUserState();
-  }, [userName]);
+    const demoLogin = getDemoLogin();
+
+    if (demoLogin) {
+      dispatch(setDemoLogin());
+    } else {
+      currentUserState();
+    }
+  }, [userName, demoState]);
 
   const handleLogout = () => {
     dispatch(userLogout());
@@ -68,10 +75,10 @@ const Navbar = () => {
     navigate('/home');
   };
 
-  // const handleDemoLogout = () => {
-  //   dispatch(setDemoLogout());
-  //   navigate('/');
-  // };
+  const handleDemoLogout = () => {
+    dispatch(setDemoLogout());
+    navigate('/');
+  };
 
   return (
     <Nav>
@@ -91,6 +98,10 @@ const Navbar = () => {
               <img src="/images/home-icon.svg" alt="HOME" />
               <span>HOME</span>
             </Link>
+            <a>
+              <img src="/images/search-icon.svg" alt="SEARCH" />
+              <span>SEARCH</span>
+            </a>
             <a href="#originals">
               <img src="/images/original-icon.svg" alt="ORIGINALS" />
               <span>ORIGINALS</span>
@@ -107,7 +118,7 @@ const Navbar = () => {
           <SignOut>
             <UserImg src="/images/profile-img.jpg" alt="profile pic" />
             <DropDown>
-              <span onClick={handleLogout}>Sign out</span>
+              <span onClick={handleDemoLogout}>Sign out</span>
             </DropDown>
           </SignOut>
         </>

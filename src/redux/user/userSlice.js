@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getDefaultNormalizer } from '@testing-library/react';
 import { getUser, signOutUser } from '../../api/queries';
 
 const initialState = {
@@ -22,12 +23,13 @@ const userSlice = createSlice({
       state.userName = null;
       state.email = null;
       state.photo = null;
-      state.demoLogin = false;
     },
     setDemoLogin: (state, action) => {
+      localStorage.setItem('demoLogin', 'Authenticated');
       state.demoLogin = true;
     },
     setDemoLogout: (state, action) => {
+      localStorage.removeItem('demoLogin');
       state.demoLogin = false;
     },
   },
@@ -35,6 +37,16 @@ const userSlice = createSlice({
 
 export const { setUserLogin, setUserLogout, setDemoLogin, setDemoLogout } =
   userSlice.actions;
+
+export const getDemoLogin = () => {
+  const value = localStorage.getItem('demoLogin');
+
+  if (value) {
+    return true;
+  }
+
+  return false;
+};
 
 export const userLogin =
   (user = null) =>

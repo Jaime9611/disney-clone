@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Detail, Home, Login } from './pages';
 import Layout from './pages/Layout';
+import { selectDemoState, selectUserName } from './redux/user/userSlice';
 
 const App = () => {
   return (
