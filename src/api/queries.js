@@ -35,10 +35,10 @@ export const getSearchMovie = async (search) => {
     const moviesRef = collection(db, 'Movies');
     const q = query(moviesRef, where('title', '>=', search.toUpperCase()));
     const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.data().title);
+    let movies = querySnapshot.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
     });
+    return movies;
   }
 };
 
