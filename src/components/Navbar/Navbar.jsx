@@ -24,6 +24,7 @@ import {
   NavMenu,
   Logo,
   UserImg,
+  SearchInput,
   Login,
   SignOut,
   DropDown,
@@ -31,6 +32,7 @@ import {
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [showInput, setShowInput] = useState(false);
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
@@ -85,6 +87,7 @@ const Navbar = () => {
     event.preventDefault();
     navigate(`/search?title=${searchTerm}`);
     setSearchTerm('');
+    setShowInput(false);
   };
 
   return (
@@ -105,10 +108,10 @@ const Navbar = () => {
               <img src="/images/home-icon.svg" alt="HOME" />
               <span>HOME</span>
             </Link>
-            <a>
+            <div onClick={() => setShowInput(() => !showInput)}>
               <img src="/images/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
-            </a>
+            </div>
             <a href="/home/#originals">
               <img src="/images/original-icon.svg" alt="ORIGINALS" />
               <span>ORIGINALS</span>
@@ -128,14 +131,18 @@ const Navbar = () => {
               <span onClick={handleDemoLogout}>Sign out</span>
             </DropDown>
           </SignOut>
-          <form action="" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Search..."
-              onChange={(e) => setSearchTerm(e.target.value)}
-              value={searchTerm}
-            />
-          </form>
+          {showInput && (
+            <form action="" onSubmit={handleSubmit}>
+              <SearchInput>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  value={searchTerm}
+                />
+              </SearchInput>
+            </form>
+          )}
         </>
       ) : (
         <>

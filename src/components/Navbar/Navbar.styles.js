@@ -54,7 +54,8 @@ export const NavMenu = styled.div`
   position: relative;
   margin-right: auto;
   margin-left: 25px;
-  a {
+  a,
+  div {
     display: flex;
     align-items: center;
     padding: 0 12px;
@@ -72,6 +73,7 @@ export const NavMenu = styled.div`
       padding: 2px 0px;
       white-space: nowrap;
       position: relative;
+      cursor: pointer;
       &:before {
         background-color: rgb(249, 249, 249);
         border-radius: 0px 0px 4px 4px;
@@ -100,6 +102,32 @@ export const NavMenu = styled.div`
   /* @media (max-width: 768px) {
     display: none;
   } */
+`;
+
+export const SearchInput = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -80px;
+  height: 80px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  background-color: rgba(9, 11, 19, 0.7);
+
+  input {
+    width: 300px;
+    height: 30px;
+    padding: 20px 30px;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px transparent;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+  }
 `;
 
 export const Login = styled.a`
