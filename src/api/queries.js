@@ -1,4 +1,13 @@
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+  query,
+  where,
+  startAt,
+  orderBy,
+} from 'firebase/firestore';
 import db from '../api';
 import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth, provider } from '../api';
@@ -18,6 +27,19 @@ export const getMovie = async (id) => {
   console.log(snapshot);
   const movie = snapshot.data();
   return movie;
+};
+
+export const getSearchMovie = async (search) => {
+  if (search) {
+    console.log({ search });
+    const moviesRef = collection(db, 'Movies');
+    const q = query(moviesRef, where('title', '>=', search.toUpperCase()));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.data().title);
+    });
+  }
 };
 
 export const getUser = async () => {
