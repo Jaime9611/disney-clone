@@ -36,6 +36,8 @@ export const Wrapper = styled.div`
     height: 300px;
     object-fit: contain;
     left: 20px;
+    opacity: 1;
+    z-index: 2;
   }
 
   img:nth-child(2) {
@@ -47,6 +49,7 @@ export const Wrapper = styled.div`
       rgb(0 0 0 / 73%) 0px 16px 10px -10px;
     transition-duration: 300ms;
     object-fit: cover;
+    opacity: 0.6;
 
     &:hover {
       border: 4px solid rgba(249, 249, 249, 0.8);

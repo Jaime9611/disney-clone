@@ -28,6 +28,7 @@ import {
   Login,
   SignOut,
   DropDown,
+  HelpText,
 } from './Navbar.styles';
 
 const Navbar = () => {
@@ -90,6 +91,16 @@ const Navbar = () => {
     setShowInput(false);
   };
 
+  const handleSearchButtonClick = (event) => {
+    setShowInput(() => !showInput);
+  };
+
+  const handleEscape = (event) => {
+    if (event.key == 'Escape') {
+      setShowInput(false);
+    }
+  };
+
   return (
     <Nav>
       <Logo>
@@ -108,7 +119,7 @@ const Navbar = () => {
               <img src="/images/home-icon.svg" alt="HOME" />
               <span>HOME</span>
             </Link>
-            <div onClick={() => setShowInput(() => !showInput)}>
+            <div onClick={handleSearchButtonClick}>
               <img src="/images/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
             </div>
@@ -126,7 +137,7 @@ const Navbar = () => {
             </a>
           </NavMenu>
           <SignOut>
-            <UserImg src="/images/profile-img.jpg" alt="profile pic" />
+            <UserImg src="/images/demo-login.jpeg" alt="profile pic" />
             <DropDown>
               <span onClick={handleDemoLogout}>Sign out</span>
             </DropDown>
@@ -136,10 +147,13 @@ const Navbar = () => {
               <SearchInput>
                 <input
                   type="text"
+                  autoFocus
                   placeholder="Search..."
                   onChange={(e) => setSearchTerm(e.target.value)}
                   value={searchTerm}
+                  onKeyDown={(event) => handleEscape(event)}
                 />
+                <HelpText>Press ESC to exit.</HelpText>
               </SearchInput>
             </form>
           )}

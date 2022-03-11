@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   align-items: center;
   padding: 0 36px;
   letter-spacing: 16px;
-  z-index: 3;
+  z-index: 4;
 
   .login-btns {
     width: 200px;
@@ -41,6 +41,15 @@ export const Logo = styled.a`
     display: block;
     width: 100%;
   }
+`;
+
+export const HelpText = styled.small`
+  align-self: end;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #e4e4e4;
 `;
 
 export const NavMenu = styled.div`
@@ -116,6 +125,7 @@ export const SearchInput = styled.div`
   width: 100%;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
   background-color: rgba(9, 11, 19, 0.7);
+  z-index: -1;
 
   input {
     width: 300px;

@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
   left: 0px;
-  opacity: 0.8;
+  opacity: 0.45;
   position: fixed;
   right: 0px;
   top: 0px;
@@ -33,11 +33,11 @@ export const ImageTitle = styled.div`
   justify-content: flex-start;
   margin: 0px auto;
   height: 25vw;
-  min-height: 170px;
+  min-height: 100px;
   padding-bottom: 24px;
   width: 100%;
   img {
-    max-width: 600px;
+    max-width: 330px;
     min-width: 200px;
     width: 35vw;
   }

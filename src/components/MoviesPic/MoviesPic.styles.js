@@ -14,6 +14,18 @@ export const Content = styled.div`
   }
 `;
 
+export const TextBox = styled.div`
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 500ms ease-in-out 0s;
+`;
+
 export const Wrapper = styled.div`
   padding-top: 56.25%;
   border-radius: 10px;
@@ -30,6 +42,8 @@ export const Wrapper = styled.div`
     display: block;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
+    image-position: end;
     opacity: 1;
     position: absolute;
     transition: opacity 500ms ease-in-out 0s;
@@ -43,5 +57,8 @@ export const Wrapper = styled.div`
       rgb(0 0 0 / 72%) 0px 30px 22px -10px;
     transform: scale(1.05);
     border-color: rgba(249, 249, 249, 0.8);
+    ${TextBox} {
+      opacity: 1;
+    }
   }
 `;
