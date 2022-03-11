@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectDemoState, selectUserName } from '../../redux/user/userSlice';
@@ -19,11 +19,9 @@ const Login = () => {
   const demoState = useSelector(selectDemoState);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user || demoState) {
-      navigate('/home');
-    }
-  }, [user, demoState]);
+  if (user || demoState) {
+    navigate('/home');
+  }
 
   return (
     <Container>

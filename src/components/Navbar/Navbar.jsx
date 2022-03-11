@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -31,9 +31,6 @@ const Navbar = () => {
         onAuthStateChanged(auth, (user) => {
           if (user) {
             dispatch(userLogin(user));
-            navigate('/home');
-          } else {
-            navigate('/');
           }
         });
       } catch (error) {
@@ -41,21 +38,24 @@ const Navbar = () => {
       }
     };
     currentUserState();
-  }, [dispatch, navigate]);
+  }, [dispatch]);
 
   useEffect(() => {
-    const demoLogin = getDemoLogin();
-
-    if (demoLogin) {
-      dispatch(setDemoLogin());
-    } else {
-      memoizeCallback();
+    if (!demoState || !userName) {
+      const demoLogin = getDemoLogin();
+      if (demoLogin) {
+        dispatch(setDemoLogin());
+      } else {
+        memoizeCallback();
+      }
     }
   }, [userName, demoState, memoizeCallback, dispatch, navigate]);
 
   const handleLogin = () => {
     dispatch(userLogin());
+    navigate('/home');
   };
+
   const handleDemoLogin = () => {
     dispatch(setDemoLogin());
     navigate('/home');

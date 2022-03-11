@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getMovie } from '../../api/queries';
+import { selectDemoState, selectUserName } from '../../redux/user/userSlice';
 
 import {
   Container,
@@ -21,6 +23,13 @@ const Detail = () => {
   const { movieId } = useParams();
   const [loading, setLoading] = useState(false);
   const [movie, setMovie] = useState({});
+  const user = useSelector(selectUserName);
+  const demoState = useSelector(selectDemoState);
+  const navigate = useNavigate();
+
+  if (!demoState && !user) {
+    navigate('/');
+  }
 
   const fetchMovie = async (id) => {
     const item = await getMovie(id);
