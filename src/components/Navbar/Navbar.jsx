@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import { onAuthStateChanged } from 'firebase/auth';
@@ -10,32 +9,19 @@ import { auth } from '../../api';
 import {
   selectDemoState,
   selectUserName,
-  selectUserPhoto,
   userLogin,
-  userLogout,
   setDemoLogin,
   getDemoLogin,
-  setDemoLogout,
 } from '../../redux/user/userSlice';
 
-import {
-  Nav,
-  NavMenu,
-  Logo,
-  UserImg,
-  SearchInput,
-  Login,
-  SignOut,
-  DropDown,
-  HelpText,
-} from './Navbar.styles';
+import MenuDemo from './MenuDemo/MenuDemo';
+import MenuLogin from './MenuLogin/MenuLogin';
+
+import { Nav, Logo, Login } from './Navbar.styles';
 
 const Navbar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showInput, setShowInput] = useState(false);
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
-  const userPhoto = useSelector(selectUserPhoto);
   const demoState = useSelector(selectDemoState);
   const navigate = useNavigate();
 
@@ -68,40 +54,12 @@ const Navbar = () => {
     }
   }, [userName, demoState, memoizeCallback, dispatch, navigate]);
 
-  const handleLogout = () => {
-    dispatch(userLogout());
-    navigate('/');
-  };
-
   const handleLogin = () => {
     dispatch(userLogin());
   };
-
   const handleDemoLogin = () => {
     dispatch(setDemoLogin());
     navigate('/home');
-  };
-
-  const handleDemoLogout = () => {
-    dispatch(setDemoLogout());
-    navigate('/');
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    navigate(`/search?title=${searchTerm}`);
-    setSearchTerm('');
-    setShowInput(false);
-  };
-
-  const handleSearchButtonClick = (event) => {
-    setShowInput(() => !showInput);
-  };
-
-  const handleEscape = (event) => {
-    if (event.key === 'Escape') {
-      setShowInput(false);
-    }
   };
 
   return (
@@ -116,97 +74,9 @@ const Navbar = () => {
           <Login onClick={handleDemoLogin}>Demo</Login>
         </div>
       ) : !userName && demoState ? (
-        <>
-          <NavMenu>
-            <Link to="/home">
-              <img src="/images/home-icon.svg" alt="HOME" />
-              <span>HOME</span>
-            </Link>
-            <div onClick={handleSearchButtonClick}>
-              <img src="/images/search-icon.svg" alt="SEARCH" />
-              <span>SEARCH</span>
-            </div>
-            <a href="/home/#originals">
-              <img src="/images/original-icon.svg" alt="ORIGINALS" />
-              <span>ORIGINALS</span>
-            </a>
-            <a href="#movies">
-              <img src="/images/movie-icon.svg" alt="MOVIES" />
-              <span>MOVIES</span>
-            </a>
-            <a href="#series">
-              <img src="/images/series-icon.svg" alt="SERIES" />
-              <span>SERIES</span>
-            </a>
-          </NavMenu>
-          <SignOut>
-            <UserImg src="/images/demo-login.jpeg" alt="profile pic" />
-            <DropDown>
-              <span onClick={handleDemoLogout}>Sign out</span>
-            </DropDown>
-          </SignOut>
-          {showInput && (
-            <form action="" onSubmit={handleSubmit}>
-              <SearchInput>
-                <input
-                  type="text"
-                  autoFocus
-                  placeholder="Search..."
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  value={searchTerm}
-                  onKeyDown={(event) => handleEscape(event)}
-                />
-                <HelpText>Press ESC to exit.</HelpText>
-              </SearchInput>
-            </form>
-          )}
-        </>
+        <MenuDemo />
       ) : (
-        <>
-          <NavMenu>
-            <Link to="/home">
-              <img src="/images/home-icon.svg" alt="HOME" />
-              <span>HOME</span>
-            </Link>
-            <div onClick={handleSearchButtonClick}>
-              <img src="/images/search-icon.svg" alt="SEARCH" />
-              <span>SEARCH</span>
-            </div>
-            <a href="#originals">
-              <img src="/images/original-icon.svg" alt="ORIGINALS" />
-              <span>ORIGINALS</span>
-            </a>
-            <a href="#movies">
-              <img src="/images/movie-icon.svg" alt="MOVIES" />
-              <span>MOVIES</span>
-            </a>
-            <a href="#series">
-              <img src="/images/series-icon.svg" alt="SERIES" />
-              <span>SERIES</span>
-            </a>
-          </NavMenu>
-          <SignOut>
-            <UserImg src={userPhoto} alt={userName} />
-            <DropDown>
-              <span onClick={handleLogout}>Sign out</span>
-            </DropDown>
-          </SignOut>
-          {showInput && (
-            <form action="" onSubmit={handleSubmit}>
-              <SearchInput>
-                <input
-                  type="text"
-                  autoFocus
-                  placeholder="Search..."
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  value={searchTerm}
-                  onKeyDown={(event) => handleEscape(event)}
-                />
-                <HelpText>Press ESC to exit.</HelpText>
-              </SearchInput>
-            </form>
-          )}
-        </>
+        <MenuLogin />
       )}
     </Nav>
   );
