@@ -5,11 +5,9 @@ import {
   getDoc,
   query,
   where,
-  startAt,
-  orderBy,
 } from 'firebase/firestore';
 import db from '../api';
-import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { signInWithPopup, signOut } from 'firebase/auth';
 import { auth, provider } from '../api';
 
 export const getMovies = async () => {

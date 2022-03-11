@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDefaultNormalizer } from '@testing-library/react';
 import { getUser, signOutUser } from '../../api/queries';
 
 const initialState = {
@@ -53,7 +52,7 @@ export const userLogin =
   async (dispatch) => {
     if (!user) {
       const userInfo = await getUser();
-      const user = userInfo.user;
+      user = userInfo.user;
     }
     if (user) {
       dispatch(

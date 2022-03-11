@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { currentUserState } from '../../api/queries';
 
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../api';
@@ -40,20 +39,23 @@ const Navbar = () => {
   const demoState = useSelector(selectDemoState);
   const navigate = useNavigate();
 
-  const currentUserState = async () => {
-    try {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          dispatch(userLogin(user));
-          navigate('/home');
-        } else {
-          navigate('/');
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const memoizeCallback = useCallback(() => {
+    const currentUserState = async () => {
+      try {
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            dispatch(userLogin(user));
+            navigate('/home');
+          } else {
+            navigate('/');
+          }
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    currentUserState();
+  }, [dispatch, navigate]);
 
   useEffect(() => {
     const demoLogin = getDemoLogin();
@@ -61,9 +63,9 @@ const Navbar = () => {
     if (demoLogin) {
       dispatch(setDemoLogin());
     } else {
-      currentUserState();
+      memoizeCallback();
     }
-  }, [userName, demoState]);
+  }, [userName, demoState, memoizeCallback, dispatch]);
 
   const handleLogout = () => {
     dispatch(userLogout());
@@ -96,7 +98,7 @@ const Navbar = () => {
   };
 
   const handleEscape = (event) => {
-    if (event.key == 'Escape') {
+    if (event.key === 'Escape') {
       setShowInput(false);
     }
   };
@@ -165,14 +167,10 @@ const Navbar = () => {
               <img src="/images/home-icon.svg" alt="HOME" />
               <span>HOME</span>
             </Link>
-            <a>
+            <div onClick={handleSearchButtonClick}>
               <img src="/images/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
-            </a>
-            <a>
-              <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
-              <span>WATCHLIST</span>
-            </a>
+            </div>
             <a href="#originals">
               <img src="/images/original-icon.svg" alt="ORIGINALS" />
               <span>ORIGINALS</span>
@@ -192,6 +190,21 @@ const Navbar = () => {
               <span onClick={handleLogout}>Sign out</span>
             </DropDown>
           </SignOut>
+          {showInput && (
+            <form action="" onSubmit={handleSubmit}>
+              <SearchInput>
+                <input
+                  type="text"
+                  autoFocus
+                  placeholder="Search..."
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  value={searchTerm}
+                  onKeyDown={(event) => handleEscape(event)}
+                />
+                <HelpText>Press ESC to exit.</HelpText>
+              </SearchInput>
+            </form>
+          )}
         </>
       )}
     </Nav>

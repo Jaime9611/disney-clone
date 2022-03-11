@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { getSearchMovie } from '../../api/queries';
@@ -18,17 +18,19 @@ const Search = () => {
   let query = useQuery();
   let search = query.get('title');
 
-  const fetchSearchMovies = async () => {
-    const movies = await getSearchMovie(search);
-    console.log({ movies });
-    if (movies) {
-      setSerchMovies(movies);
-    }
-  };
+  const memoizedCallback = useCallback(() => {
+    const fetchSearchMovies = async () => {
+      const movies = await getSearchMovie(search);
+      if (movies) {
+        setSerchMovies(movies);
+      }
+    };
+    fetchSearchMovies();
+  }, [search]);
 
   useEffect(() => {
-    fetchSearchMovies();
-  }, [search, searchMovies]);
+    memoizedCallback();
+  }, [search, searchMovies, memoizedCallback]);
 
   return userName || demoState ? (
     <Container>

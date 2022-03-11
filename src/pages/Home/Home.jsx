@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 
-import { useNavigate } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies } from '../../redux/movie/movieSlice';
 import {

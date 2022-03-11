@@ -23,8 +23,8 @@ const ImgSlider = () => {
         movies.map((movie) => (
           <Wrapper key={movie.id}>
             <Link to={`/detail/${movie.id}`}>
-              <img src={movie.imageTitle} />
-              <img src={movie.imageBg} alt="trend content" />
+              <img src={movie.imageTitle} alt={movie.title} />
+              <img src={movie.imageBg} alt={movie.title} />
             </Link>
           </Wrapper>
         ))}
