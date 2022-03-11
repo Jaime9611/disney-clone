@@ -30,7 +30,7 @@ const Search = () => {
 
   useEffect(() => {
     memoizedCallback();
-  }, [search, searchMovies, memoizedCallback]);
+  }, [memoizedCallback]);
 
   return userName || demoState ? (
     <Container>
