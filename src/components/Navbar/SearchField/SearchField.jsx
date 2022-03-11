@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { SearchInput, HelpText } from './SearchField.styles';
+import { SearchInput, SearchForm, HelpText } from './SearchField.styles';
 
 const SearchField = ({ setShowInput }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +21,7 @@ const SearchField = ({ setShowInput }) => {
     }
   };
   return (
-    <form action="" onSubmit={handleSubmit}>
+    <SearchForm action="" onSubmit={handleSubmit}>
       <SearchInput>
         <input
           type="text"
@@ -33,7 +33,7 @@ const SearchField = ({ setShowInput }) => {
         />
         <HelpText>Press ESC to exit.</HelpText>
       </SearchInput>
-    </form>
+    </SearchForm>
   );
 };
 

@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
-export const SerchForm = styled.form`
-  display: hidden;
+export const SearchForm = styled.form`
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  right: 0;
+  width: 100%;
 `;
 
 export const SearchInput = styled.div`
-  position: absolute;
-
+  display: block;
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: -80px;
   height: 80px;
-  left: 0;
   right: 0;
   width: 100%;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;

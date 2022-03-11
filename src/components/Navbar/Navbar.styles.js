@@ -56,7 +56,7 @@ export const NavMenu = styled.div`
   margin-left: 25px;
 
   @media (max-width: 768px) {
-    display: ${(props) => (props.showMenu ? 'none' : 'flex')};
+    display: ${(props) => (props.showMenu ? 'flex' : 'none')};
     position: absolute;
     bottom: -290px;
     background-color: rgba(0, 0, 0, 0.9);

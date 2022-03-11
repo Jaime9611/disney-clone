@@ -25,7 +25,7 @@ const MenuDemo = () => {
   };
 
   useEffect(() => {
-    handleShowMenu();
+    setShowMenu(false);
   }, [location]);
 
   return (

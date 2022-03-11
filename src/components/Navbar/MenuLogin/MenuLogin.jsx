@@ -27,7 +27,7 @@ const MenuLogin = () => {
   };
 
   useEffect(() => {
-    handleShowMenu();
+    setShowMenu(false);
   }, [location]);
 
   return (
