@@ -22,18 +22,18 @@ const Menu = ({ children }) => {
           <img src="/images/search-icon.svg" alt="SEARCH" />
           <span>SEARCH</span>
         </div>
-        <a href="/home/#originals">
+        <Link to="/search?type=original">
           <img src="/images/original-icon.svg" alt="ORIGINALS" />
           <span>ORIGINALS</span>
-        </a>
-        <a href="#movies">
+        </Link>
+        <Link to="/search?type=movie">
           <img src="/images/movie-icon.svg" alt="MOVIES" />
           <span>MOVIES</span>
-        </a>
-        <a href="#series">
+        </Link>
+        <Link to="/search?type=serie">
           <img src="/images/series-icon.svg" alt="SERIES" />
           <span>SERIES</span>
-        </a>
+        </Link>
       </NavMenu>
       {children}
       {showInput && <SearchField setShowInput={setShowInput} />}

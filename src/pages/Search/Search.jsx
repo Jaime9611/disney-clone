@@ -16,17 +16,18 @@ const Search = () => {
     return new URLSearchParams(location.search);
   };
   let query = useQuery();
-  let search = query.get('title');
+  let key = query.keys().next().value;
+  let search = query.get(key);
 
   const memoizedCallback = useCallback(() => {
     const fetchSearchMovies = async () => {
-      const movies = await getSearchMovie(search);
+      const movies = await getSearchMovie(key, search);
       if (movies) {
         setSerchMovies(movies);
       }
     };
     fetchSearchMovies();
-  }, [search]);
+  }, [search, key]);
 
   useEffect(() => {
     memoizedCallback();

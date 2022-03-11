@@ -27,11 +27,15 @@ export const getMovie = async (id) => {
   return movie;
 };
 
-export const getSearchMovie = async (search) => {
+export const getSearchMovie = async (key, search) => {
   if (search) {
-    console.log({ search });
+    let q = undefined;
     const moviesRef = collection(db, 'Movies');
-    const q = query(moviesRef, where('title', '>=', search.toUpperCase()));
+    if (key === 'title') {
+      q = query(moviesRef, where(key, '>=', search.toUpperCase()));
+    } else {
+      q = query(moviesRef, where(key, '==', search));
+    }
     const querySnapshot = await getDocs(q);
     let movies = querySnapshot.docs.map((doc) => {
       return { id: doc.id, ...doc.data() };
