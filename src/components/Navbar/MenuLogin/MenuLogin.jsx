@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { selectUserName, selectUserPhoto } from '../../../redux/user/userSlice';
 
-import { userLogout } from '../../redux/user/userSlice';
+import { userLogout } from '../../../redux/user/userSlice';
 
 import SearchField from '../SearchField/SearchField';
 
-import { NavMenu, UserImg, SignOut, DropDown } from './Navbar.styles';
+import { NavMenu, UserImg, SignOut, DropDown } from '../Navbar.styles';
 
 const MenuLogin = () => {
   const [showInput, setShowInput] = useState(false);
@@ -56,7 +56,7 @@ const MenuLogin = () => {
           <span onClick={handleLogout}>Sign out</span>
         </DropDown>
       </SignOut>
-      {showInput && <SearchField />}
+      {showInput && <SearchField setShowInput={setShowInput} />}
     </>
   );
 };

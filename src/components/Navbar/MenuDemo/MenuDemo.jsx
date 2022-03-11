@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { setDemoLogout } from '../../redux/user/userSlice';
+import { setDemoLogout } from '../../../redux/user/userSlice';
 
 import SearchField from '../SearchField/SearchField';
 
-import { NavMenu, UserImg, SignOut, DropDown } from './Navbar.styles';
+import { NavMenu, UserImg, SignOut, DropDown } from '../Navbar.styles';
 
 const MenuDemo = () => {
   const [showInput, setShowInput] = useState(false);

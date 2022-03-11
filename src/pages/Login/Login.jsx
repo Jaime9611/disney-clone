@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { selectDemoState, selectUserName } from '../../redux/user/userSlice';
 
 import {
   Container,
@@ -12,6 +15,16 @@ import {
 } from './Login.styles';
 
 const Login = () => {
+  const user = useSelector(selectUserName);
+  const demoState = useSelector(selectDemoState);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user || demoState) {
+      navigate('/home');
+    }
+  }, [user, demoState]);
+
   return (
     <Container>
       <Content>

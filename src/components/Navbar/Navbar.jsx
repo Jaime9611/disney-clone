@@ -48,7 +48,6 @@ const Navbar = () => {
 
     if (demoLogin) {
       dispatch(setDemoLogin());
-      navigate('/home');
     } else {
       memoizeCallback();
     }
