@@ -62,10 +62,11 @@ const Navbar = () => {
 
     if (demoLogin) {
       dispatch(setDemoLogin());
+      navigate('/home');
     } else {
       memoizeCallback();
     }
-  }, [userName, demoState, memoizeCallback, dispatch]);
+  }, [userName, demoState, memoizeCallback, dispatch, navigate]);
 
   const handleLogout = () => {
     dispatch(userLogout());
