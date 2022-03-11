@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
+export const SerchForm = styled.form`
+  display: hidden;
+`;
+
 export const SearchInput = styled.div`
   position: absolute;
+
   display: flex;
   align-items: center;
   justify-content: center;

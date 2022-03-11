@@ -21,7 +21,7 @@ export const Background = styled.div`
     width: 100vw;
     height: 100vh;
     @media (max-width: 768px) {
-      width: initial;
+      width: 100%;
     }
   }
 `;
@@ -32,7 +32,7 @@ export const ImageTitle = styled.div`
   -webkit-box-pack: start;
   justify-content: flex-start;
   margin: 0px auto;
-  height: 25vw;
+  height: 50vh;
   min-height: 100px;
   padding-bottom: 24px;
   width: 100%;

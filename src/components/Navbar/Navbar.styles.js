@@ -54,11 +54,26 @@ export const NavMenu = styled.div`
   position: relative;
   margin-right: auto;
   margin-left: 25px;
+
+  @media (max-width: 768px) {
+    display: ${(props) => (props.showMenu ? 'none' : 'flex')};
+    position: absolute;
+    bottom: -290px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    height: 290px;
+    left: -30px;
+    right: 0;
+    width: 100vw;
+    flex-direction: column;
+  }
+
   a,
   div {
     display: flex;
     align-items: center;
     padding: 0 12px;
+
     img {
       height: 20px;
       min-width: 20px;
@@ -90,6 +105,9 @@ export const NavMenu = styled.div`
         visibility: hidden;
         width: auto;
       }
+    }
+    @media (max-width: 768px) {
+      padding: 18px 0;
     }
     &:hover {
       span:before {
@@ -126,6 +144,9 @@ export const UserImg = styled.img`
 `;
 
 export const DropDown = styled.div`
+  @media (min-width: 368px) {
+  }
+
   position: absolute;
   top: 48px;
   right: 0px;

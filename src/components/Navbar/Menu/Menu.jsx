@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import { NavMenu } from '../Navbar.styles';
 import SearchField from '../SearchField/SearchField';
 
-const Menu = ({ children }) => {
+const Menu = ({ children, showMenu, setShowMenu }) => {
   const [showInput, setShowInput] = useState(false);
+  const location = useLocation();
 
-  const handleSearchButtonClick = (event) => {
-    setShowInput(() => !showInput);
+  const handleSearchButtonClick = () => {
+    setShowMenu((showMenu) => !showMenu);
+    setShowInput((showInput) => !showInput);
   };
+
+  useEffect(() => {
+    setShowInput(false);
+  }, [location]);
 
   return (
     <>
-      <NavMenu>
+      <NavMenu showMenu={showMenu}>
         <Link to="/home">
           <img src="/images/home-icon.svg" alt="HOME" />
           <span>HOME</span>
