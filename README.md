@@ -1,6 +1,6 @@
 # Disney Clone
 
-This project is a simple movie directory that emulates the UI of Disney+ streaming webpapp, for doing this practice web app, I use React and firebase to host the content.
+This project is a simple movie directory that emulates the UI of Disney+ streaming webpapp, for doing this practice web app, I used React and Firebase to host the content.
 
 ## Table of contents
 
@@ -16,7 +16,7 @@ This project is a simple movie directory that emulates the UI of Disney+ streami
 
 ## Overview
 
-In this project I make use of React, as well as styled component library for making all the UI styles. I also put in practice the use of Redux Toolkit, for managing the state.
+In this project I make use of React, as well as Styled Components library for making all the UI styles. I also put in practice the use of Redux Toolkit for managing the state of the app. In this web app you can search and view the movies that currently are inside a Firebase database, as well as Log in with your Google account or enter as a Demo user.
 
 ### Screenshots
 
@@ -38,34 +38,31 @@ In this project I make use of React, as well as styled component library for mak
 
 ### Links
 
-- Live Site URL: [Live Site](https://jaime9611.github.io/fylo-landing-page/)
+- Live Site URL: [Live Site](https://disney-clone-4b7fc.web.app)
 
 ## My process
 
-In building this project, I used Webpack to bundle all my files and to compress the images, so that the final "dist" folder will be ready for production. I also configure Webpack to compile the .scss files used for styling the page.
+In building this project, I used the create-react-app utility, then I make a install and configuration of Redux Toolkit for managing the state and I created a firebase database to keep all the assets and data. I took the styles and assets from the disney-clone tutorial at [Clever Programmer](https://www.youtube.com/watch?v=kn8HPNwPEkw) Youtube channel.
 
 ### Built with
 
-- Semantic HTML5 markup
-- Mobile-first workflow
-- SASS
-- Flexbox
-- Webpack
+- React.
+- Redux Toolkit.
+- React Slick.
+- Styled Components.
+- Firebase.
 
 ### What I learned
 
-Simple styling with Sass, using mixins and functions to best follow the "DRY" principle, Flexbox for layout and the use of Webpack for bundling and compilation.
+My main purpose with this project was to practice the React library, make use of components, routes (react-router), hooks (useState, useEffect, useCallback) and Redux to create global states. Also learned about Styled Components and how it help to write CSS within Javascript, to make the styles more dinamic.
 
-### Continued development
+### Resources
 
-Continue learning Sass and learn more about Webpack configuration.
+- [DisneyClone-Clever Programmer](https://www.youtube.com/watch?v=kn8HPNwPEkw) - This helped me a lot for not waste so much time in the layout and styling.
+- [Styled Component Docs](https://styled-components.com/docs) - This is the main resource for any problem with this librarie.
 
-### Useful resources
-
-- [MDN](https://developer.mozilla.org/es/docs/Learn) - This helped me for reviewing CSS properties and Javascript coding.
-- [W3Schools](https://www.w3schools.com/css/) - This is an useful resource for css properties and simple use cases.
+- [Firebase Docs](https://firebase.google.com/docs/web/setup?hl=es-419) - An always up to date resource for learning how to add firebase to a WebApp.
 
 ## Author
 
 - Github - [Jaime9611](https://github.com/Jaime9611)
-- Frontend Mentor - [@Jaime9611](https://www.frontendmentor.io/profile/Jaime9611)
