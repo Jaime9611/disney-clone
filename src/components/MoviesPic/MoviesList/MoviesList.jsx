@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container, Content, Wrapper, TextBox } from '../MoviesPic.styles';
+import { Content, Wrapper, TextBox } from '../MoviesPic.styles';
+import { Container } from './MoviesList.styles';
 
 const MovieList = ({ movies }) => {
   return (

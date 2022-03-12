@@ -22,6 +22,7 @@ const userSlice = createSlice({
       state.userName = null;
       state.email = null;
       state.photo = null;
+      state.demoLogin = false;
     },
     setDemoLogin: (state, action) => {
       localStorage.setItem('demoLogin', 'Authenticated');

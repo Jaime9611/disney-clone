@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Disney Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple movie directory that emulates the UI of Disney+ streaming webpapp, for doing this practice web app, I use React and firebase to host the content.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [Screenshots](#screenshot)
+  - [Link to live site](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### `yarn start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In this project I make use of React, as well as styled component library for making all the UI styles. I also put in practice the use of Redux Toolkit, for managing the state.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Screenshots
 
-### `yarn test`
+- Login Page:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ![Login Preview](./screenshots/login.png)
 
-### `yarn build`
+- Home Page:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ![Home Preview](./screenshots/home.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Detail Page:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ![Detail Preview](./screenshots/detail.png)
 
-### `yarn eject`
+- Search Page:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ![Search Preview](./screenshots/search.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Links
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Live Site URL: [Live Site](https://jaime9611.github.io/fylo-landing-page/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## My process
 
-## Learn More
+In building this project, I used Webpack to bundle all my files and to compress the images, so that the final "dist" folder will be ready for production. I also configure Webpack to compile the .scss files used for styling the page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Built with
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Semantic HTML5 markup
+- Mobile-first workflow
+- SASS
+- Flexbox
+- Webpack
 
-### Code Splitting
+### What I learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Simple styling with Sass, using mixins and functions to best follow the "DRY" principle, Flexbox for layout and the use of Webpack for bundling and compilation.
 
-### Analyzing the Bundle Size
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Continue learning Sass and learn more about Webpack configuration.
 
-### Making a Progressive Web App
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [MDN](https://developer.mozilla.org/es/docs/Learn) - This helped me for reviewing CSS properties and Javascript coding.
+- [W3Schools](https://www.w3schools.com/css/) - This is an useful resource for css properties and simple use cases.
 
-### Advanced Configuration
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Github - [Jaime9611](https://github.com/Jaime9611)
+- Frontend Mentor - [@Jaime9611](https://www.frontendmentor.io/profile/Jaime9611)
